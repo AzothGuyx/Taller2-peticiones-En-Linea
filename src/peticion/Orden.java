@@ -1,6 +1,6 @@
 package peticion;
 
-import usuario.Usuario;
+import modelos.Usuario;
 
 public class Orden {
 	
@@ -28,9 +28,5 @@ public class Orden {
 		this.peticion = peticion;
 		this.usuario = usuario;
 	}
-	
-	
-	
-	
 	
 }

@@ -1,4 +1,4 @@
-package usuario;
+package modelos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,16 +60,13 @@ public class Usuario {
 	public void quitRole(Rol rol) {
 		this.roles.remove(rol);
 	}
-	public Usuario(Integer id, String nombre, String apellido, String correo, String contrasenia) {
+	
+	public Usuario(Integer id, String nombre, String apellido, String correo, String contrasenia, List<Rol> roles) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.contrasenia = contrasenia;
 		this.correo = correo;
-		this.roles.add(new Rol(1,"usuario","usuario"));
+		this.roles = roles;
 	}
-	
-	
-	
-	
-	
 }
