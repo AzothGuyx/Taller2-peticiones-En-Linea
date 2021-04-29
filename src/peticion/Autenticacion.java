@@ -12,39 +12,66 @@ public class Autenticacion {
 	VerificacionIP verificacionIP;
 	VerificacionDatosCrudos verificacionDatos;
 	VerificacionCache verificacionCache;
-	
+
 	Usuario usuario;
-	
-	public Autenticacion(VerificacionUsuario verificacionUsuario,
-						 VerificacionIP verificacionIP,
-						 VerificacionDatosCrudos verificacionDatos,
-						 VerificacionCache verificacionCache,
-						 Usuario usuario) {
-		
+
+	public Autenticacion(VerificacionUsuario verificacionUsuario, VerificacionIP verificacionIP,
+			VerificacionDatosCrudos verificacionDatos, VerificacionCache verificacionCache, Usuario usuario) {
+
 		this.verificacionUsuario = verificacionUsuario;
 		this.verificacionDatos = verificacionDatos;
 		this.verificacionIP = verificacionIP;
 		this.verificacionCache = verificacionCache;
 		this.usuario = usuario;
 	}
-	
-	public Boolean ValidarUsuario() {
+
+	private  Boolean ValidarUsuario() {
 		return verificacionUsuario.validar();
 	}
-	
-	public Boolean ValidadCache() {
+
+	private Boolean ValidadCache() {
 		return verificacionCache.validar();
 	}
- 
-	public Boolean ValidarDatosCrudos() {
+
+	private Boolean ValidarDatosCrudos() {
 		return verificacionDatos.validar();
 	}
-	
-	public Boolean ValidarIP() {
+
+	private Boolean ValidarIP() {
 		return verificacionIP.validar();
 	}
-	
-	public String obtenerRolesUsuario(){
+
+	private String obtenerRolesUsuario() {
 		return verificacionUsuario.validarRoles();
 	}
+
+	
+	public void verificarInformacion() {
+		Boolean usuarioCorrecto = ValidarUsuario();
+
+		if (usuarioCorrecto) {
+			System.out.println("Es un usuario válido");
+			System.out.println(obtenerRolesUsuario());
+
+			Boolean IpValida = ValidarIP();
+			if (IpValida) {
+				System.out.println("La IP es válida");
+
+				Boolean ordenCacheada = ValidadCache();
+				if (ordenCacheada) {
+					System.out.println("Orden procesada");
+				} else {
+					Boolean datosCrudos = ValidarDatosCrudos();
+					if (datosCrudos) {
+						System.out.println("No se puede procesar su solicitud");
+					} else {
+						System.out.println("Solicitud válida");
+					}
+				}
+			}
+		} else {
+			System.out.println("Usuario no válido, bye");
+		}
+	}
+
 }

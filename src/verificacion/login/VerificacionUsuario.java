@@ -15,7 +15,7 @@ public class VerificacionUsuario implements IVerificacion {
 		this.usuario = usuario;
 	}
 
-	public Boolean validarUsuarioContrsenia(List<Usuario> usuariosBD) {
+	private Boolean validarUsuarioContrsenia(List<Usuario> usuariosBD) {
 		for (Usuario usuario : usuariosBD) {
 			if (usuario.getCorreo().equals(this.usuario.getCorreo())
 					&& usuario.getContrasenia().equals(this.usuario.getContrasenia())) {
