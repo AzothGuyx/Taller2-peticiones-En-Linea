@@ -21,7 +21,7 @@ public class Cliente {
 		roles.add(empleado);
 		roles.add(administrador);
 		
-		Usuario usuarioValido = new Usuario(2,"Camilo","Ayudame","camilo@socorrojesus.com","", roles);
+		Usuario usuarioValido = new Usuario(2,"Camilo","Ayudame","camilo@socorrojesus.com","noestaencriptadox2", roles);
 		
 		Orden ordenValida = new Orden("GET USERS", usuarioValido);
 		
