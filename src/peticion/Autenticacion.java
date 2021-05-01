@@ -1,6 +1,6 @@
 package peticion;
 
-import modelos.Usuario;
+
 import verificacion.login.VerificacionIP;
 import verificacion.login.VerificacionUsuario;
 import verificacion.peticiones.VerificacionCache;
@@ -13,16 +13,14 @@ public class Autenticacion {
 	VerificacionDatosCrudos verificacionDatos;
 	VerificacionCache verificacionCache;
 
-	Usuario usuario;
 
 	public Autenticacion(VerificacionUsuario verificacionUsuario, VerificacionIP verificacionIP,
-			VerificacionDatosCrudos verificacionDatos, VerificacionCache verificacionCache, Usuario usuario) {
+			VerificacionDatosCrudos verificacionDatos, VerificacionCache verificacionCache) {
 
 		this.verificacionUsuario = verificacionUsuario;
 		this.verificacionDatos = verificacionDatos;
 		this.verificacionIP = verificacionIP;
 		this.verificacionCache = verificacionCache;
-		this.usuario = usuario;
 	}
 
 	private  Boolean ValidarUsuario() {

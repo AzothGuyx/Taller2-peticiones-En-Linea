@@ -23,14 +23,13 @@ public class Cliente {
 		
 		Usuario usuarioValido = new Usuario(2,"Camilo","Ayudame","camilo@socorrojesus.com","noestaencriptadox2", roles);
 		
-		Orden ordenValida = new Orden("GET USERS", usuarioValido);
+		Orden ordenValida = new Orden("GET TOTAL", usuarioValido);
 		
 		
 		Autenticacion autenticacion = new Autenticacion(new VerificacionUsuario(usuarioValido), 
 														new VerificacionIP(), 
 														new VerificacionDatosCrudos(ordenValida), 
-														new VerificacionCache(ordenValida), 
-														usuarioValido);
+														new VerificacionCache(ordenValida));
 		
 		autenticacion.verificarInformacion();
 		
